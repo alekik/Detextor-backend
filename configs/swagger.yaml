@@ -1,0 +1,53 @@
+swagger: "2.0"
+
+info:
+  title: Swagger Template
+  description: A Template API
+  version: "0.1"
+
+paths:
+  /greeting:
+    get:
+      operationId: app.flask.routes.say_hello
+      summary: Returns a greeting.
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: string
+  /process_img:
+    post:
+      operationId: app.flask.routes.process_image
+      summary: Endpoint to receive an RGB image and returns text from it by some OCR method
+      parameters:
+      - description: Example payload
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/ImagePayload'
+      produces:
+      - application/json
+      responses:
+        201:
+          description: Successful response.
+          schema:
+            type: string
+
+definitions:
+  ImagePayload:
+    type: object
+    properties:
+      image:
+        description: A base64-encoded image
+        type: string
+      img_size:
+        description: Size of image
+        type: array
+        items:
+          - type: integer
+        minItems: 3
+        maxItems: 3
+    required:
+    - image
+    - img_size

@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "detextor-backend"
+version = "0.1.0"
+description = ""
+authors = ["The-Hateful-Eight-Team <cotnikoarkady@gmail.com>"]
+readme = "README.md"
+packages = [{include = "detextor_backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^2.2.2"
+numpy = "^1.24.2"
+opencv-python = "^4.7.0.68"
+connexion = {extras = ["swagger-ui"], version = "^2.14.2"}
+flask-cors = "^3.0.10"
+swagger-ui-bundle = "^0.0.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
